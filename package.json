@@ -1,0 +1,29 @@
+{
+  "name": "kakuen",
+  "version": "0.1.0",
+  "version": "3.4.4",
+  "author": {
+    "name": "homerquan",
+    "email": "support@homerquan.com"
+  },
+  "description": "a simple zero-configuration restful service mockup tool",
+  "contributors": [{
+    "name": "Homer Quan",
+    "email": "support@homerquan.com"
+  }],
+  "main": "./server/kakuen-server",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/homerquan/kakuen.git"
+  },
+  "keywords": [
+    "kakuen",
+    "mockup",
+    "restful"
+  ],
+  "dependencies": {
+    "express": "3.4.4",
+    "chokidar": "0.7.1",
+    "underscore": "1.5.2"
+  }
+}
