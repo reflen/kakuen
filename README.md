@@ -1,7 +1,11 @@
 kakuen
 ======
-## Why?
-Mock up RESTful webservices simply by editing text files:  GET-store_x-books.json  ==> GET /store/x/books
+## What's kakun
+Mock up RESTful webservices simply by editing text files:  GET__#book#123#authors.json  ==> GET /book/123/authors,  GET__#book?id=123.json ==> GET /book?id=123/authors
+
+## How to use
+run:
+nodemon
 
 ## License
 The MIT license.

@@ -23,9 +23,9 @@ var mockService = function(fn) {
 	var pathAndType = requestAttribute[1] || '';
 	var type = pathAndType.split('.').pop();
 	var path = pathAndType.slice(0, -(type.length + 1));
-	//http method in a set, json or xml type, and url start with | (replace of /)
+	//http method in a set, json or xml type, and url start with # (replace of /)
 	if (allowMethod.indexOf(method) > -1 && (/^|/).test(path) && allowType.indexOf(type) > -1) {
-		path = path.replace(/\|/g, '/');
+		path = path.replace(/\#/g, '/');
 		mockResponses.push({
 			'method': method,
 			'path': path,
