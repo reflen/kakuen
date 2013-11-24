@@ -4,8 +4,9 @@ kakuen
 Mock up RESTful webservices simply by editing text files:  GET__#book#123#authors.json  ==> GET /book/123/authors,  GET__#book?id=123.json ==> GET /book?id=123/authors
 
 ## How to use
-run:
-nodemon
+1. Run: nodemon
+2. Edit mockup RESTful services in 'mockups' e.g., GET__book?id=123.json
+3. access it e.g., http://localhost:8443/book?id=123
 
 ## License
 The MIT license.
