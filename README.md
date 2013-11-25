@@ -1,13 +1,30 @@
 kakuen
 ======
+
 ## What's kakun
-Mock up RESTful webservices simply by editing text files:  GET__#book#123#authors.json  ==> GET /book/123/authors,  GET__#book?id=123.json ==> GET /book?id=123/authors
 
-## How to use
-1. Run: nodemon
-2. Edit mockup RESTful services under 'mockups' in the format <method>__#url.[xml|json] e.g., GET__#book?id=123.json ('#' is used to replace '/')
+Mock up RESTful webservices simply by editing text files, e.g., 
+  1. `GET__#book#123#authors.json  ==> GET /book/123/authors`
+  2. `GET__#book?id=123.json ==> GET /book?id=123/authors`
 
-3. access it e.g., http://localhost:8443/book?id=123
+## Quick start
+
+Install dependencies:
+
+   $ npm install
+
+Start the server
+ 
+   $ nodemon
+
+Edit json or xml files under 'mockups' in the format:``<method>__#url.[xml|json]`` e.g., ``GET__#book?id=123.json`` ('#' is used to replace '/')
+
+Finally access it by curl or browser e.g., http://localhost:8443/book?id=123
+
+## Features
+  
+  * monitoring change in mock files.
+  * support both json and xml 
 
 ## License
 The MIT license.
