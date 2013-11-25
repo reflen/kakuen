@@ -5,7 +5,7 @@ kakuen
 
 Mock up RESTful webservices simply by editing text files, e.g., 
   1. `GET__#book#123#authors.json  ==> GET /book/123/authors`
-  2. `GET__#book?id=123.json ==> GET /book?id=123/authors`
+  2. `POST__#book?id=123.json ==> POST /book?id=123`
 
 ## Quick start
 
