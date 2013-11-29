@@ -77,7 +77,7 @@ app.use(function(req, res, next) {
 		res.send(mock.content);
 	} else {
 		res.send({
-			error: 'no mockup for this request'
+			error: 'no mockup for this request: ' + req.url
 		});
 	}
 });
