@@ -1,11 +1,9 @@
-var express = require('express'),
-	chokidar = require('chokidar'),
+var chokidar = require('chokidar'),
 	_ = require('underscore'),
-	fs = require('fs'),
-	app = express();
+	fs = require('fs');
 
 //config
-var mocksFolder = 'mocks',
+var mocksFolder = process.env.KAKUEN_MOCKS_FOLDER || 'mocks',
 	port = process.env.KAKUEN_PORT | 8443,
 	allowMethod = ['GET', 'POST', 'PUT', 'DELETE'],
 	allowType = ['json', 'xml'];
@@ -60,8 +58,7 @@ watcher.close();
 
 reloadMocks();
 
-// respond
-app.use(function(req, res, next) {
+exports.mocker = function(req, res, next) {
 	var mock = _.find(mockResponses, function(item) {
 		return item.method === req.method && item.path === req.url;
 	});
@@ -80,6 +77,4 @@ app.use(function(req, res, next) {
 			error: 'no mockup for this request: ' + req.url
 		});
 	}
-});
-
-app.listen(port);
+};
