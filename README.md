@@ -29,13 +29,11 @@ Mock up RESTful webservices simply by editing text files, e.g.,
 
 Samples:
 
-DELETE__#book?id=123.json        
-GET__#book?id=1234.json  
-GET__#city?name=sf.json  
-PUT__#book?id=123.json
-GET__#book?id=1234#authors.json  
-GET__#book?id=123.json   
-POST__#book?id=123.json
+  * DELETE__#book?id=123.json        
+  * GET__#book?id=1234.json  
+  * GET__#city?name=sf.json  
+  * PUT__#book?id=123.json
+  * POST__#book?id=123.json
 
 4. Finally Start the server and access mocks e.g.,
    curl http://localhost:8005/book?id=123
