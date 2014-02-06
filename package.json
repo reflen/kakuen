@@ -1,16 +1,17 @@
 {
   "name": "kakuen",
-  "version": "0.1.0",
-  "version": "3.4.4",
+  "version": "3.5.1",
   "author": {
     "name": "homerquan",
     "email": "support@homerquan.com"
   },
   "description": "a simple zero-configuration restful service mockup tool",
-  "contributors": [{
-    "name": "Homer Quan",
-    "email": "support@homerquan.com"
-  }],
+  "contributors": [
+    {
+      "name": "Homer Quan",
+      "email": "support@homerquan.com"
+    }
+  ],
   "main": "./server/kakuen-server",
   "repository": {
     "type": "git",
@@ -25,5 +26,9 @@
     "express": "3.4.4",
     "chokidar": "0.7.1",
     "underscore": "1.5.2"
-  }
+  },
+  "readme": "kakuen\r\n======\r\n\r\n## What's kakun\r\n\r\nMock up RESTful webservices simply by editing text files, e.g., \r\n  1. `GET__#book#123#authors.json  ==> GET /book/123/authors`\r\n  2. `POST__#book?id=123.json ==> POST /book?id=123`\r\n\r\n## Quick start\r\n\r\nInstall dependencies:\r\n\r\n   $ npm install\r\n\r\nStart the server\r\n \r\n   $ nodemon\r\n\r\nEdit json or xml files under 'mockups' in the format:``<method>__#url.[xml|json]`` e.g., ``GET__#book?id=123.json`` ('#' is used to replace '/')\r\n\r\nFinally access it by curl or browser e.g., http://localhost:8443/book?id=123\r\n\r\n## Features\r\n  \r\n  * monitoring change in mock files.\r\n  * support both json and xml \r\n\r\n## License\r\nThe MIT license.\r\n\r\nCopyright (c) 2013 Homer Quan (http://www.homerquan.com)\r\n\r\nPermission is hereby granted, free of charge, to any person obtaining a copy of\r\nthis software and associated documentation files (the \"Software\"), to deal in\r\nthe Software without restriction, including without limitation the rights to\r\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies\r\nof the Software, and to permit persons to whom the Software is furnished to do\r\nso, subject to the following conditions:\r\n\r\nThe above copyright notice and this permission notice shall be included in all\r\ncopies or substantial portions of the Software.\r\n\r\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\r\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\r\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\r\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\r\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\r\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\r\nSOFTWARE.\r\n",
+  "readmeFilename": "README.md",
+  "_id": "kakuen@3.4.4",
+  "_from": "kakuen@"
 }
