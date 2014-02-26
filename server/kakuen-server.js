@@ -24,6 +24,7 @@ var mockService = function(fn) {
 	//http method in a set, json or xml type, and url start with # (replace of /)
 	if (allowMethod.indexOf(method) > -1 && (/^|/).test(path) && allowType.indexOf(type) > -1) {
 		path = path.replace(/\#/g, '/');
+		path = path.replace(/\@/g, '?');
 		mockResponses.push({
 			'method': method,
 			'path': path,
@@ -73,7 +74,7 @@ exports.mocker = function(req, res, next) {
 		};
 		res.send(mock.content);
 	} else {
-		res.send(500,{
+		res.send({
 			error: 'no mockup for this request: ' + req.url
 		});
 	}

@@ -7,7 +7,7 @@ kakuen
 
 Mock up RESTful webservices simply by editing text files, e.g., 
   1. `GET__#book#123#authors.json  ==> GET /book/123/authors`
-  2. `POST__#book?id=123.json ==> POST /book?id=123`
+  2. `POST__#book@id=123.json ==> POST /book?id=123`
 
 ## Quick start
 
@@ -27,23 +27,25 @@ Mock up RESTful webservices simply by editing text files, e.g.,
     server.listen(8005);
 ```
 
-  3. Create a folder "mocks" (or specify: export KAKUEN_MOCKS_FOLDER="your_mocks_folder" ) in the same directory of server.js. Then edit json or xml files under 'mocks' in the format:``<method>__#url.[xml|json]`` e.g., ``GET__#book?id=123.json`` ('#' is used to replace '/')
+  3. Create a folder "mocks" (or specify: export KAKUEN_MOCKS_FOLDER="your_mocks_folder" ) in the same directory of server.js. Then edit json or xml files under 'mocks' in the format:``<method>__#url.[xml|json]`` e.g., ``GET__#book@id=123.json`` ('#' to replace '/', '@' to replace '?')
 
-Samples:
+E.g., 
 
-  * DELETE__#book?id=123.json        
-  * GET__#book?id=1234.json  
-  * GET__#city?name=sf.json  
-  * PUT__#book?id=123.json
-  * POST__#book?id=123.json
+  * DELETE__#book@id=123.json     (DELETE /book?id=123   
+  * GET__#book@id=1234&type=0.xml (GET /book?id=1234&type=0)  
 
-  4. Finally Start the server and access mocks e.g.,
-   curl http://localhost:8005/book?id=123
+  4. Finally Start the server and access mocks
+
+E.g., 
+curl http://localhost:8005/book?id=123
 
 ## Features
   
   * monitoring change in mock files.
   * support both json and xml 
+  
+## Change log
+  * fix file name in windows system  
 
 ## License
 The MIT license.
