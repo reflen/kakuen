@@ -27,7 +27,7 @@ Mock up RESTful webservices simply by editing text files, e.g.,
     server.listen(8005);
 ```
 
-  3. Create a folder "mocks" (or specify: export KAKUEN_MOCKS_FOLDER="your_mocks_folder" ) in the same directory of server.js. Then edit json or xml files under 'mocks' in the format:``<method>__#url.[xml|json]`` e.g., ``GET__#book@id=123.json`` ('#' to replace '/', '@' to replace '?')
+  3. Rename the folder "sample mocks" as "mocks" and put it in the root directory of your node app (or specify: export KAKUEN_MOCKS_FOLDER="your_mocks_folder" ) in the same directory of server.js. Then edit json or xml files under 'mocks' in the format:``<method>__#url.[xml|json]`` e.g., ``GET__#book@id=123.json`` ('#' to replace '/', '@' to replace '?')
 
 E.g., 
 
