@@ -16,7 +16,7 @@ Mock up RESTful webservices simply by editing text files, e.g.,
    $ npm install kakuen
 
   1. Use kakuen as a handler in express e.g., server.js
-```
+    ```
     var express=require('express'),
     kakuen=require('kakuen'),
     server=express(),
@@ -24,7 +24,7 @@ Mock up RESTful webservices simply by editing text files, e.g.,
 
     server.use(moker);
     server.listen(8005);
-```
+    ```
   1. Rename the folder "sample mocks" as "mocks" and put it in the root directory of your node app (or specify: export KAKUEN_MOCKS_FOLDER="your_mocks_folder" ). Then adding or editing json or xml files under 'mocks' in the format:``<method>__#url.[xml|json]`` e.g., ``GET__#book@id=123.json`` ('#' to replace '/', '@' to replace '?')
 
     E.g., 
