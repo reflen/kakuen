@@ -13,8 +13,8 @@ Mock up RESTful webservices simply by editing text files, e.g.,
   1. `GET__#book#123#authors.json  ==> GET /book/123/authors`
   2. `POST__#book@id=123.json ==> POST /book?id=123`
   
-For json, a schema-based mockup is supported, e.g.,
-  * for item <pre><code>
+For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET__#search@q=js.json``
+  * for single item <pre><code>
 		"@KAKUEN_ITEM(offset)": {
 			"@KAKUEN_TYPE": "natural",
 			"@KAKUEN_PARAM": {
