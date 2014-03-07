@@ -5,6 +5,7 @@ kakuen 4.0.0
 =======
 ![alt tag](https://imagizer.imageshack.us/v2/240x250q90/c/19/68t6.png)
 kakuen
+v4.0.1
 ======
 
 [![Build Status](https://travis-ci.org/homerquan/kakuen.png?branch=master)](https://travis-ci.org/homerquan/kakuen)
@@ -16,7 +17,25 @@ Write by [homerquan](http://www.homerquan.com)
 
 Mock up RESTful webservices simply by editing text files, e.g., 
   1. `GET__#book#123#authors.json  ==> GET /book/123/authors`
+<<<<<<< HEAD
   2. `POST__#book?id=123.json ==> POST /book?id=123`
+=======
+  2. `POST__#book@id=123.json ==> POST /book?id=123`
+  
+For json file, a schema-based mockup is supported, e.g.,
+```
+		"@KAKUEN_ITEM(offset)": {
+			"@KAKUEN_TYPE": "natural",
+			"@KAKUEN_PARAM": {
+				"min": 1,
+				"max": 20
+			}
+		}
+```
+
+will be ``offset:12``
+
+>>>>>>> 63d2c56959a6cef32f0ea9c00f3a7d217f156b73
 
 ## Quick start
 
@@ -71,6 +90,14 @@ POST__#book?id=123.json
   
   * monitoring change in mock files.
   * support both json and xml 
+<<<<<<< HEAD
+=======
+  * 
+  
+## Change log
+  * v4.0.0 add schema-based mockup using chance data generator
+  * v3.5.4 fix file name in windows system  
+>>>>>>> 63d2c56959a6cef32f0ea9c00f3a7d217f156b73
 
 ## License
 The MIT license.
