@@ -1,6 +1,9 @@
 var chokidar = require('chokidar'),
 	_ = require('underscore'),
-	fs = require('fs');
+	Chance = require('chance'),
+	chance = new Chance();
+jsonpath = require('JSONPath').eval,
+fs = require('fs');
 
 //config
 var mocksFolder = process.env.KAKUEN_MOCKS_FOLDER || 'mocks',
@@ -13,7 +16,97 @@ var watcher = chokidar.watch(mocksFolder, {
 	persistent: true
 });
 
+//extent chance with image type 
+chance.image = function(param) {
+	var result = "http://lorempixel.com";
+	result = result + '/' + param.w + '/' + param.h + '/' + param.topic;
+	return result;
+}
+
 var mockResponses = [];
+
+var hasSchema = function(json) {
+	try {
+		var allElem = jsonpath(JSON.parse(json), '$..*');
+		var filter = /^@KAKUEN/;
+		var ke = _.find(allElem, function(obj) {
+			var key;
+			for (key in obj) {
+				if (obj.hasOwnProperty(key) && filter.test(key)) {
+					return true;
+				}
+			};
+		});
+		if (ke)
+			return true;
+	} catch (e) {
+		return false;
+	};
+	return false;
+};
+
+var traverse = function(obj, func, parent) {
+	for (i in obj) {
+		func.apply(this, [i, obj[i], parent, obj]);
+		if (obj[i] instanceof Object && !(obj[i] instanceof Array)) {
+			traverse(obj[i], func, i);
+		}
+	}
+};
+
+var genFromSchema = function(json) {
+	var jsonObj = {};
+	var itemFilter = /^@KAKUEN_ITEM/;
+	var collectionFilter = /^@KAKUEN_COLLECTION/;
+	try {
+		jsonObj = JSON.parse(json);
+		traverse(jsonObj, function(key, value, parent, obj) {
+			var ki, kk, value, chanceSetting = '';
+			var schema, tempObj = {};
+			var count = 0;
+			var kc = [];
+
+			// transform item
+			if (itemFilter.test(key)) {
+				ki = _.keys(obj)[0];
+				chanceSetting = obj[ki];
+				kk = ki.match(/\((.*)\)$/)[1];
+				try {
+					value = chance[chanceSetting['@KAKUEN_TYPE']](chanceSetting['@KAKUEN_PARAM']);
+				} catch (ee) {
+					value = "Error: can't find this type data." + ee.message;
+				};
+
+				delete obj[ki];
+				obj[kk] = value;
+			};
+			// transform collection
+			if (collectionFilter.test(key)) {
+				kc = [];
+				schema = obj[key];
+				kk = key.match(/\((\w+)\)/)[1];
+				count = parseInt(key.match(/\((\d+)\)/)[1]);
+				for (var i = 0; i < count; i++) {
+					tempObj = {};
+					for (var n in schema) {
+						chanceSetting = schema[n];
+						try {
+							tempObj[n] = chance[chanceSetting['@KAKUEN_TYPE']](chanceSetting['@KAKUEN_PARAM']);
+						} catch (ee) {
+							tempObj[n] = "Error: can't find this type data." + ee.message;
+						};
+					};
+					kc.push(tempObj);
+				};
+				delete obj[key];
+				obj[kk] = kc;
+			};
+		});
+	} catch (e) {
+		return '';
+	};
+	return JSON.stringify(jsonObj);
+};
 
 var mockService = function(fn) {
 	var requestAttribute = fn.split('__', 2);
@@ -21,6 +114,17 @@ var mockService = function(fn) {
 	var pathAndType = requestAttribute[1] || '';
 	var type = pathAndType.split('.').pop();
 	var path = pathAndType.slice(0, -(type.length + 1));
+	var rawData = fs.readFileSync(mocksFolder + '/' + fn).toString() || '';
+	var finalData = '';
+
+	// if raw json do not include json schema, take as it is
+	// otherwise, transfer it using schema
+	if (hasSchema(rawData) && type === 'json') {
+		finalData = genFromSchema(rawData);
+	} else {
+		finalData = rawData;
+	};
+
 	//http method in a set, json or xml type, and url start with # (replace of /)
 	if (allowMethod.indexOf(method) > -1 && (/^|/).test(path) && allowType.indexOf(type) > -1) {
 		path = path.replace(/\#/g, '/');
@@ -29,7 +133,7 @@ var mockService = function(fn) {
 			'method': method,
 			'path': path,
 			'type': type,
-			'content': fs.readFileSync(mocksFolder + '/' + fn).toString()
+			'content': finalData,
 		});
 	} else {
 		// return 501 error

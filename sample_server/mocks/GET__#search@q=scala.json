@@ -1,0 +1,28 @@
+{
+	"meta": {
+		"@KAKUEN_ITEM(offset)": {
+			"@KAKUEN_TYPE": "natural",
+			"@KAKUEN_PARAM": {
+				"min": 1,
+				"max": 20
+			}
+		},
+		"limit": 10
+	},
+	"@KAKUEN_COLLECTION(data)(10)": {
+		"name": {
+			"@KAKUEN_TYPE": "flight",
+			"@KAKUEN_PARAM": {
+				"middle_initial": true
+			}
+		},
+		"cover-image": {
+			"@KAKUEN_TYPE": "image",
+			"@KAKUEN_PARAM": {
+				"w": 165,
+				"h": 165,
+				"topic": "sports"
+			}
+		}
+	}
+}
