@@ -26,7 +26,7 @@ For json file, a schema-based mockup is supported, e.g.,
   ```
   will be ``offset:12``
   * for collection
-  ```
+   ```
        "@KAKUEN_COLLECTION(data)(10)": {
 		"name": {
 			"@KAKUEN_TYPE": "name",
@@ -43,7 +43,7 @@ For json file, a schema-based mockup is supported, e.g.,
 			}
 		}
 	}
-  ```
+   ```
   will be 
   ```
    [
