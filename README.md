@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-kakuen 4.0.0
-======
-
-=======
 ![alt tag](https://imagizer.imageshack.us/v2/240x250q90/c/19/68t6.png)
 kakuen
 v4.0.1
@@ -12,14 +7,10 @@ v4.0.1
 
 Write by [homerquan](http://www.homerquan.com)
 
->>>>>>> c626d7e7d857042a70518d6bb33d61f840cb08dd
 ## What's kakun
 
 Mock up RESTful webservices simply by editing text files, e.g., 
   1. `GET__#book#123#authors.json  ==> GET /book/123/authors`
-<<<<<<< HEAD
-  2. `POST__#book?id=123.json ==> POST /book?id=123`
-=======
   2. `POST__#book@id=123.json ==> POST /book?id=123`
   
 For json file, a schema-based mockup is supported, e.g.,
@@ -35,23 +26,15 @@ For json file, a schema-based mockup is supported, e.g.,
 
 will be ``offset:12``
 
->>>>>>> 63d2c56959a6cef32f0ea9c00f3a7d217f156b73
 
 ## Quick start
 
-1. Install
+  1. Install
 
    $ npm install kakuen
 
-<<<<<<< HEAD
-2. Use kakuen as a handler in express 
-
-    e.g., server.js in sample_server
-   
-=======
   1. Use kakuen as a handler in express e.g., server.js
     ```
->>>>>>> c626d7e7d857042a70518d6bb33d61f840cb08dd
     var express=require('express'),
     kakuen=require('kakuen'),
     server=express(),
@@ -59,23 +42,6 @@ will be ``offset:12``
 
     server.use(moker);
     server.listen(8005);
-<<<<<<< HEAD
-
-3. Create a folder "mocks" (or specify: export KAKUEN_MOCKS_FOLDER="your_mocks_folder" ) in the same directory of server.js. Then edit json or xml files under 'mocks' in the format:``<method>__#url.[xml|json]`` e.g., ``GET__#book?id=123.json`` ('#' is used to replace '/')
-
-Samples:
-
-DELETE__#book?id=123.json        
-GET__#book?id=1234.json  
-GET__#city?name=sf.json  
-PUT__#book?id=123.json
-GET__#book?id=1234#authors.json  
-GET__#book?id=123.json   
-POST__#book?id=123.json
-
-4. Finally Start the server and access mocks e.g.,
-   curl http://localhost:8005/book?id=123
-=======
     ```
   1. Rename the folder "sample mocks" as "mocks" and put it in the root directory of your node app (or specify it: `` export KAKUEN_MOCKS_FOLDER="your_mocks_folder" `` ). Then adding or editing json or xml files under 'mocks' in the format:``<method>__#url.[xml|json]`` e.g., ``GET__#book@id=123.json`` ('#' to replace '/', '@' to replace '?')
     E.g., 
@@ -84,20 +50,16 @@ POST__#book?id=123.json
   1. Finally Start the server and access mocks
     E.g.,
     * ``curl http://localhost:8005/book?id=123``
->>>>>>> c626d7e7d857042a70518d6bb33d61f840cb08dd
 
 ## Features
   
   * monitoring change in mock files.
   * support both json and xml 
-<<<<<<< HEAD
-=======
   * 
   
 ## Change log
   * v4.0.0 add schema-based mockup using chance data generator
   * v3.5.4 fix file name in windows system  
->>>>>>> 63d2c56959a6cef32f0ea9c00f3a7d217f156b73
 
 ## License
 The MIT license.
