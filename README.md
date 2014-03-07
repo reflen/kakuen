@@ -43,13 +43,12 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
 	}
   </code></pre>
   will be <pre><code>
-  ```
    [
      {
       name: "Leo B. McCarthy",
       cover-image: "http://lorempixel.com/165/165/sports"
      },
-     ... 9 more
+     ... and 9 more
    ]
   </code></pre>
 
@@ -79,8 +78,8 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
     * ``curl http://localhost:8005/search?q=js``
 
 ## Supported mock types
-  * all data types in [chance.js][http://chancejs.com/], such as person name, address, ipv6 ...
-  * image from [lorempixel.com][http://lorempixel.com], which needs to specify weight, height, and topic (option) e.g.,    <pre><code>
+  * all data types in [chance.js](http://chancejs.com/), such as person name, address, ipv6 ...
+  * image from [lorempixel.com](http://lorempixel.com), which needs to specify weight, height, and topic (option) e.g.,    <pre><code>
    "cover-image": {
 	"@KAKUEN_TYPE": "image",
 	"@KAKUEN_PARAM": {
