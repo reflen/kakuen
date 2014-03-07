@@ -1,6 +1,17 @@
+<<<<<<< HEAD
 kakuen 4.0.0
 ======
 
+=======
+![alt tag](https://imagizer.imageshack.us/v2/240x250q90/c/19/68t6.png)
+kakuen
+======
+
+[![Build Status](https://travis-ci.org/homerquan/kakuen.png?branch=master)](https://travis-ci.org/homerquan/kakuen)
+
+Write by [homerquan](http://www.homerquan.com)
+
+>>>>>>> c626d7e7d857042a70518d6bb33d61f840cb08dd
 ## What's kakun
 
 Mock up RESTful webservices simply by editing text files, e.g., 
@@ -13,10 +24,15 @@ Mock up RESTful webservices simply by editing text files, e.g.,
 
    $ npm install kakuen
 
+<<<<<<< HEAD
 2. Use kakuen as a handler in express 
 
     e.g., server.js in sample_server
    
+=======
+  1. Use kakuen as a handler in express e.g., server.js
+    ```
+>>>>>>> c626d7e7d857042a70518d6bb33d61f840cb08dd
     var express=require('express'),
     kakuen=require('kakuen'),
     server=express(),
@@ -24,6 +40,7 @@ Mock up RESTful webservices simply by editing text files, e.g.,
 
     server.use(moker);
     server.listen(8005);
+<<<<<<< HEAD
 
 3. Create a folder "mocks" (or specify: export KAKUEN_MOCKS_FOLDER="your_mocks_folder" ) in the same directory of server.js. Then edit json or xml files under 'mocks' in the format:``<method>__#url.[xml|json]`` e.g., ``GET__#book?id=123.json`` ('#' is used to replace '/')
 
@@ -39,6 +56,16 @@ POST__#book?id=123.json
 
 4. Finally Start the server and access mocks e.g.,
    curl http://localhost:8005/book?id=123
+=======
+    ```
+  1. Rename the folder "sample mocks" as "mocks" and put it in the root directory of your node app (or specify it: `` export KAKUEN_MOCKS_FOLDER="your_mocks_folder" `` ). Then adding or editing json or xml files under 'mocks' in the format:``<method>__#url.[xml|json]`` e.g., ``GET__#book@id=123.json`` ('#' to replace '/', '@' to replace '?')
+    E.g., 
+    * DELETE__#book@id=123.json     (DELETE /book?id=123   
+    * GET__#book@id=1234&type=0.xml (GET /book?id=1234&type=0)  
+  1. Finally Start the server and access mocks
+    E.g.,
+    * ``curl http://localhost:8005/book?id=123``
+>>>>>>> c626d7e7d857042a70518d6bb33d61f840cb08dd
 
 ## Features
   
