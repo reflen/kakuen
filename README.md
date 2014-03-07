@@ -14,7 +14,8 @@ Mock up RESTful webservices simply by editing text files, e.g.,
   2. `POST__#book@id=123.json ==> POST /book?id=123`
   
 For json file, a schema-based mockup is supported, e.g.,
-```
+  * for item
+  ```
 		"@KAKUEN_ITEM(offset)": {
 			"@KAKUEN_TYPE": "natural",
 			"@KAKUEN_PARAM": {
@@ -22,10 +23,37 @@ For json file, a schema-based mockup is supported, e.g.,
 				"max": 20
 			}
 		}
-```
-
-will be ``offset:12``
-
+  ```
+  will be ``offset:12``
+  * for collection
+  ```
+       "@KAKUEN_COLLECTION(data)(10)": {
+		"name": {
+			"@KAKUEN_TYPE": "name",
+			"@KAKUEN_PARAM": {
+				"middle_initial": true
+			}
+		},
+		"cover-image": {
+			"@KAKUEN_TYPE": "image",
+			"@KAKUEN_PARAM": {
+				"w": 165,
+				"h": 165,
+				"topic": "sports"
+			}
+		}
+	}
+  ```
+  will be 
+  ```
+   [
+     {
+      name: "Leo B. McCarthy",
+      cover-image: "http://lorempixel.com/165/165/sports"
+     },
+     ... 9 more
+   ]
+  ``` 
 
 ## Quick start
 
