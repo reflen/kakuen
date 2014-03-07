@@ -83,7 +83,8 @@ For json file, a schema-based mockup is supported, e.g.,
   
   * monitoring change in mock files.
   * support both json and xml 
-  * 
+  * support scheme (for json only)
+  * support random typed data generator (for json only)
   
 ## Change log
   * v4.0.0 add schema-based mockup using chance data generator
