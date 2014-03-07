@@ -13,9 +13,8 @@ Mock up RESTful webservices simply by editing text files, e.g.,
   1. `GET__#book#123#authors.json  ==> GET /book/123/authors`
   2. `POST__#book@id=123.json ==> POST /book?id=123`
   
-For json file, a schema-based mockup is supported, e.g.,
-  * for item
-  <pre><code>
+For json, a schema-based mockup is supported, e.g.,
+  * for item <pre><code>
 		"@KAKUEN_ITEM(offset)": {
 			"@KAKUEN_TYPE": "natural",
 			"@KAKUEN_PARAM": {
@@ -25,8 +24,7 @@ For json file, a schema-based mockup is supported, e.g.,
 		}
   </code></pre>
   will be ``offset:12``
-  * for collection
-   ```
+  * for collection <pre><code>
        "@KAKUEN_COLLECTION(data)(10)": {
 		"name": {
 			"@KAKUEN_TYPE": "name",
@@ -43,8 +41,8 @@ For json file, a schema-based mockup is supported, e.g.,
 			}
 		}
 	}
-   ```
-  will be 
+  </code></pre>
+  will be <pre><code>
   ```
    [
      {
@@ -53,7 +51,7 @@ For json file, a schema-based mockup is supported, e.g.,
      },
      ... 9 more
    ]
-  ``` 
+  </code></pre>
 
 ## Quick start
 
