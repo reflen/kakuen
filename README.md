@@ -15,7 +15,7 @@ Mock up RESTful webservices simply by editing text files, e.g.,
   
 For json file, a schema-based mockup is supported, e.g.,
   * for item
-  ```
+  <pre><code>
 		"@KAKUEN_ITEM(offset)": {
 			"@KAKUEN_TYPE": "natural",
 			"@KAKUEN_PARAM": {
@@ -23,7 +23,7 @@ For json file, a schema-based mockup is supported, e.g.,
 				"max": 20
 			}
 		}
-  ```
+  </code></pre>
   will be ``offset:12``
   * for collection
    ```
