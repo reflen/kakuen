@@ -78,6 +78,16 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
 
 ## Generating mockup data by type
   * all data types in [chance.js](http://chancejs.com/), such as person name, address, ipv6 ...
+    e.g., 
+    ``chance.month({raw: true});`` 
+    will be
+    <pre><code>
+       "@KAKUEN_TYPE": "month",
+       "@KAKUEN_PARAM": {
+	   "raw": true,
+       }
+    </code></pre>
+    
   * image from [lorempixel.com](http://lorempixel.com), which needs to specify weight, height, and topic (option) e.g.,    <pre><code>
    "cover-image": {
 	"@KAKUEN_TYPE": "image",
