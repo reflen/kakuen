@@ -77,7 +77,7 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
     * ``curl http://localhost:8005/search?q=java``
     * ``curl http://localhost:8005/search?q=js``
 
-## Supported mock types
+## Generating mockup data by type
   * all data types in [chance.js](http://chancejs.com/), such as person name, address, ipv6 ...
   * image from [lorempixel.com](http://lorempixel.com), which needs to specify weight, height, and topic (option) e.g.,    <pre><code>
    "cover-image": {
