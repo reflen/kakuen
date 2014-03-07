@@ -59,8 +59,7 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
 
    $ npm install kakuen
 
-  1. Use kakuen as a handler in express e.g., server.js
-    ```
+  1. Use kakuen as a handler in express e.g., server.js <pre><code>
     var express=require('express'),
     kakuen=require('kakuen'),
     server=express(),
@@ -68,7 +67,7 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
 
     server.use(moker);
     server.listen(8005);
-    ```
+    </code></pre>
   1. Rename the folder "sample mocks" as "mocks" and put it in the root directory of your node app (or specify it: `` export KAKUEN_MOCKS_FOLDER="your_mocks_folder" `` ). Then adding or editing json or xml files under 'mocks' in the format:``<method>__#url.[xml|json]`` e.g., ``GET__#book@id=123.json`` ('#' to replace '/', '@' to replace '?')
     E.g., 
     * DELETE__#book@id=123.json     (DELETE /book?id=123   
@@ -76,6 +75,22 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
   1. Finally Start the server and access mocks
     E.g.,
     * ``curl http://localhost:8005/book?id=123``
+    * ``curl http://localhost:8005/search?q=java``
+    * ``curl http://localhost:8005/search?q=js``
+
+## Supported mock types
+  * all data types in [chance.js][http://chancejs.com/], such as person name, address, ipv6 ...
+  * image from [lorempixel.com][http://lorempixel.com], which needs to specify weight, height, and topic (option) e.g.,    <pre><code>
+   "cover-image": {
+	"@KAKUEN_TYPE": "image",
+	"@KAKUEN_PARAM": {
+		"w": 165,
+		"h": 165,
+		"topic": "sports"
+	}
+   }
+   </code></pre>
+  
 
 ## Features
   
