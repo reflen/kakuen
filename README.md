@@ -1,6 +1,5 @@
 ![alt tag](https://imagizer.imageshack.us/v2/240x250q90/c/19/68t6.png)
-kakuen
-v4.0.1
+kakuen v4.0.1
 ======
 
 [![Build Status](https://travis-ci.org/homerquan/kakuen.png?branch=master)](https://travis-ci.org/homerquan/kakuen)
