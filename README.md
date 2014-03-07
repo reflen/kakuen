@@ -77,11 +77,10 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
     * ``curl http://localhost:8005/search?q=js``
 
 ## Generating mockup data by type
-  * all data types in [chance.js](http://chancejs.com/), such as person name, address, ipv6 ...
+  * all data types in the document of [chance.js](http://chancejs.com/), such as person name, address, ipv6 ...
     e.g., 
     ``chance.month({raw: true});`` 
-    will be
-    <pre><code>
+    will be <pre><code>
        "@KAKUEN_TYPE": "month",
        "@KAKUEN_PARAM": {
 	   "raw": true,
