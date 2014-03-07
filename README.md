@@ -92,7 +92,7 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
 
 ## Features
   
-  * monitoring change in mock files.
+  * actively monitoring change in mock files.
   * support both json and xml 
   * support scheme (for json only)
   * support random typed data generator (for json only)
