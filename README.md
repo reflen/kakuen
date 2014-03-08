@@ -57,7 +57,7 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
 
    $ npm install kakuen
 
-  1. Use kakuen as a handler in express e.g., server.js <pre><code>
+  1. Launch the sample server or create your own by using kakuen as a handler in express e.g., server.js <pre><code>
     var express=require('express'),
     kakuen=require('kakuen'),
     server=express(),
@@ -66,7 +66,7 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
     server.use(moker);
     server.listen(8005);
     </code></pre>
-  1. Rename the folder "sample mocks" as "mocks" and put it in the root directory of your node app (or specify it: `` export KAKUEN_MOCKS_FOLDER="your_mocks_folder" `` ). Then adding or editing json or xml files under 'mocks' in the format:``<method>__#url.[xml|json]`` e.g., ``GET__#book@id=123.json`` ('#' to replace '/', '@' to replace '?')
+  1. Put mockup files in "mocks" at the root directory of your node app (or specify it: `` export KAKUEN_MOCKS_FOLDER="your_mocks_folder" `` ). Then adding or editing your own json or xml files under 'mocks' in the format:``<method>__#url.[xml|json]`` e.g., ``GET__#book@id=123.json`` ('#' to replace '/', '@' to replace '?')
     E.g., 
     * DELETE__#book@id=123.json     (DELETE /book?id=123   
     * GET__#book@id=1234&type=0.xml (GET /book?id=1234&type=0)  
@@ -77,7 +77,16 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
     * ``curl http://localhost:8005/search?q=js``
 
 ## Generating mockup data by type
-  * all data types in [chance.js](http://chancejs.com/), such as person name, address, ipv6 ...
+  * all data types in the document of [chance.js](http://chancejs.com/), such as person name, address, ipv6 ...
+    e.g., 
+    ``chance.month({raw: true});`` 
+    will be <pre><code>
+       "@KAKUEN_TYPE": "month",
+       "@KAKUEN_PARAM": {
+	   "raw": true,
+       }
+    </code></pre>
+    
   * image from [lorempixel.com](http://lorempixel.com), which needs to specify weight, height, and topic (option) e.g.,    <pre><code>
    "cover-image": {
 	"@KAKUEN_TYPE": "image",
@@ -92,7 +101,7 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
 
 ## Features
   
-  * monitoring change in mock files.
+  * actively monitoring change in mock files.
   * support both json and xml 
   * support scheme (for json only)
   * support random typed data generator (for json only)
