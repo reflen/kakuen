@@ -21,7 +21,14 @@ chance.image = function(param) {
   var result = "http://lorempixel.com";
     result = result + '/' + param.w + '/' + param.h + '/' + param.topic;
   return result;
-}
+};
+
+chance.avatar = function(param) {
+    var result = "http://www.avatarpro.biz/avatar";
+    if (param.size)
+        result = result + "/" + Math.random().toString(36).substring(7) + "?s=" + param.size;
+    return result;
+};
 
 var mockResponses = [];
 
