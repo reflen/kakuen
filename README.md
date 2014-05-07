@@ -110,6 +110,9 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
   * v4.0.0 add schema-based mockup using chance data generator
   * v3.5.4 fix file name in windows system  
 
+## future
+  * integrate with apiblueprint http://apiblueprint.org
+
 ## License
 The MIT license.
 
