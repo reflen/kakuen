@@ -72,23 +72,22 @@ var genFromSchema = function(json) {
   try {
     jsonObj = JSON.parse(json);
     traverse(jsonObj, function(key, value, parent, obj) {
-      var ki, kk, value, chanceSetting = '';
+      var kk, value, chanceSetting = '';
       var schema, tempObj = {};
       var count = 0;
       var kc = [];
 
       // transform item
       if (itemFilter.test(key)) {
-        ki = _.keys(obj)[0];
-        chanceSetting = obj[ki];
-        kk = ki.match(/\((.*)\)$/)[1];
+        chanceSetting = obj[key];
+        kk = key.match(/\((.*)\)$/)[1];
         try {
           value = chance[chanceSetting['@KAKUEN_TYPE']](chanceSetting['@KAKUEN_PARAM']);
         } catch (ee) {
           value = "Error: can't find this type data." + ee.message;
         };
 
-        delete obj[ki];
+        delete obj[key];
         obj[kk] = value;
       };
       // transform collection
