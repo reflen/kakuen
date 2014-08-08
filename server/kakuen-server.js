@@ -189,7 +189,7 @@ exports.mocker = function(req, res, next) {
     };
     res.send(mock.content);
   } else {
-    res.send({
+    res.send(404, {
       error: 'no mockup for this request: ' + req.url
     });
   }
