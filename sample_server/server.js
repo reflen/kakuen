@@ -1,5 +1,5 @@
 var express=require('express'),
-kakuen=require('kakuen'),
+kakuen=require('..'),
 server=express(),
 moker=kakuen.mocker;
 

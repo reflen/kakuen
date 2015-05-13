@@ -1,15 +1,15 @@
 var chokidar = require('chokidar'),
-_ = require('underscore'),
-Chance = require('chance'),
-chance = new Chance();
-jsonpath = require('JSONPath').eval,
-fs = require('fs');
+  _ = require('underscore'),
+  Chance = require('chance'),
+  chance = new Chance(),
+  jsonpath = require('JSONPath').eval,
+  fs = require('fs');
 
 //config
 var mocksFolder = process.env.KAKUEN_MOCKS_FOLDER || 'mocks',
-port = process.env.KAKUEN_PORT | 8443,
-allowMethod = ['GET', 'POST', 'PUT', 'DELETE'],
-allowType = ['json', 'xml'];
+  port = process.env.KAKUEN_PORT | 8443,
+  allowMethod = ['GET', 'POST', 'PUT', 'DELETE'],
+  allowType = ['json', 'xml'];
 
 var watcher = chokidar.watch(mocksFolder, {
   ignored: /^\./,
@@ -19,16 +19,18 @@ var watcher = chokidar.watch(mocksFolder, {
 //extent chance with image type 
 chance.image = function(param) {
   var result = "http://lorempixel.com";
-    result = result + '/' + param.w + '/' + param.h + '/' + param.topic;
+  result = result + '/' + param.w + '/' + param.h + '/' + param.topic;
   return result;
 };
 
 chance.avatar = function(param) {
-    var result = "http://www.avatarpro.biz/avatar";
-    if (param.size)
-        result = result + "/" + Math.random().toString(36).substring(7) + "?s=" + param.size;
-    return result;
+  var result = "http://www.avatarpro.biz/avatar";
+  if (param.size)
+    result = result + "/" + Math.random().toString(36).substring(7) + "?s=" + param.size;
+  return result;
 };
+
+var mocks = [];
 
 var mockResponses = [];
 
@@ -58,8 +60,8 @@ var traverse = function(obj, func, parent) {
     if (obj[i] instanceof Object && !(obj[i] instanceof Array)) {
       traverse(obj[i], func, i);
     } else if (obj[i] instanceof Array) {
-      obj[i].forEach(function(each){
-        traverse(each,func);
+      obj[i].forEach(function(each) {
+        traverse(each, func);
       });
     }
   }
@@ -151,6 +153,30 @@ var mockService = function(fn) {
   }
 };
 
+var match = function(path, url) {
+  //if no wildcard, compare 
+  var re = /{param}/;
+  var match = null;
+  match = re.exec(path);
+  if (!match) {
+    return path === url;
+  }
+  while (match) {
+    if (path.substring(0, match.index) !== url.substring(0, match.index)) {
+      return false;
+    }
+    path = path.substring(match.index + "{param}".length);
+    match = re.exec(path);
+    if (match === null)
+      return true;
+    else {
+      var interString = match.input.substring(0, match.index);
+      url = url.substring(url.indexOf(interString));
+    }
+  }
+  return false;
+};
+
 var reloadMocks = function() {
   mockResponses = [];
   var mocks = fs.readdirSync(mocksFolder);
@@ -160,15 +186,15 @@ var reloadMocks = function() {
 };
 
 watcher
-.on('add', function(path) {
-  reloadMocks();
-})
-.on('change', function(path) {
-  reloadMocks();
-})
-.on('unlink', function(path) {
-  reloadMocks();
-});
+  .on('add', function(path) {
+    reloadMocks();
+  })
+  .on('change', function(path) {
+    reloadMocks();
+  })
+  .on('unlink', function(path) {
+    reloadMocks();
+  });
 
 watcher.close();
 
@@ -176,7 +202,7 @@ reloadMocks();
 
 exports.mocker = function(req, res, next) {
   var mock = _.find(mockResponses, function(item) {
-    return item.method === req.method && item.path === req.url;
+    return item.method === req.method && match(item.path, req.url);
   });
   if (mock) {
     var type = mock.type;
