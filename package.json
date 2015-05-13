@@ -23,11 +23,11 @@
     "restful"
   ],
   "dependencies": {
-    "express": "3.4.4",
+    "JSONPath": "^0.9.1",
+    "chance": "^0.5.4",
     "chokidar": "0.7.1",
-    "underscore": "1.5.2",
-    "chance": "0.5.4",
-    "JSONPath": "0.9.1"
+    "express": "^3.4.4",
+    "underscore": "^1.5.2"
   },
   "readmeFilename": "README.md",
   "bugs": {
