@@ -8,7 +8,7 @@ var chokidar = require('chokidar'),
 //config
 var mocksFolder = process.env.KAKUEN_MOCKS_FOLDER || 'mocks',
   port = process.env.KAKUEN_PORT | 8443,
-  allowMethod = ['GET', 'POST', 'PUT', 'DELETE'],
+  allowMethod = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS', 'LINK', 'UNLINK', 'PURGE'],
   allowType = ['json', 'xml'];
 
 var watcher = chokidar.watch(mocksFolder, {
