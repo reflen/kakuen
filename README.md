@@ -2,10 +2,6 @@
 kakuen
 ======
 
-[![Build Status](https://travis-ci.org/homerquan/kakuen.png?branch=master)](https://travis-ci.org/homerquan/kakuen)
-
-Write by [homerquan](http://www.homerquan.com)
-
 ## What's kakun
 
 Mock up RESTful webservices simply by editing text files, e.g., 
@@ -115,7 +111,7 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
   * integrate with a integrated tools similar to apiblueprint http://apiblueprint.org
 
 ## Author
-  * Homer Quan
+  * Homer Quan (support@homerquan.com)
 
 ## License
 The MIT license.
