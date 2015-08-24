@@ -2,10 +2,6 @@
 kakuen
 ======
 
-[![Build Status](https://travis-ci.org/homerquan/kakuen.png?branch=master)](https://travis-ci.org/homerquan/kakuen)
-
-Write by [homerquan](http://www.homerquan.com)
-
 ## What's kakun
 
 Mock up RESTful webservices simply by editing text files, e.g., 
@@ -108,14 +104,14 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
   * support random typed data generator (for json only)
   
 ## Change log
-  * v4.0.0 add schema-based mockup using chance data generator
+  * v4.0.0 add schema-based mockup using [chance](http://chancejs.com/) data generator
   * v3.5.4 fix file name in windows system  
 
 ## Roadmap
   * integrate with a integrated tools similar to apiblueprint http://apiblueprint.org
 
 ## Author
-  * Homer Quan
+  * Homer Quan (support@homerquan.com)
 
 ## License
 The MIT license.
