@@ -33,5 +33,8 @@
   "bugs": {
     "url": "https://github.com/homerquan/kakuen/issues"
   },
-  "homepage": "https://github.com/homerquan/kakuen"
+  "homepage": "https://github.com/homerquan/kakuen",
+  "devDependencies": {
+    "semver": "^5.0.1"
+  }
 }
