@@ -4,8 +4,16 @@
 
 * `npm install -g kakuen`
 * `kakuen -f ./sample_server/mocks -p 8000` 
-* Or use it as an express middleware (sample code: sample_server/server.js)
+* Or use it as an express middleware
+```
+var express=require('express'),
+kakuen=require('kakuen'),
+server=express(),
+moker = kakuen.createMocker('./mocks');
 
+server.use(moker);
+server.listen(8005);
+```
 ## What's new
 
 * Add command line 
