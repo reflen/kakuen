@@ -1,6 +1,15 @@
-![alt tag](https://imagizer.imageshack.us/v2/240x250q90/c/19/68t6.png)
-kakuen
-======
+# kakuen
+
+## How to start
+
+* `npm install -g kakuen`
+* `kakuan -f ./mocks -p 8000` 
+
+## What's new
+
+* Add command line 
+* Using chalk for colorful log
+* Update dependences
 
 ## What's kakun
 
@@ -111,12 +120,12 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
   * integrate with a integrated tools similar to apiblueprint http://apiblueprint.org
 
 ## Author
-  * Homer Quan (support@homerquan.com)
+  * Homer Quan (hi@homerquan.me)
 
 ## License
-The MIT license.
+.
 
-Copyright (c) 2013-2015 Homer Quan (http://www.homerquan.com)
+Copyright (c) 2013-2015 Homer Quan (http://www.homerquan.me)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in

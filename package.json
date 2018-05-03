@@ -1,18 +1,22 @@
 {
   "name": "kakuen",
-  "version": "4.1.3",
+  "version": "5.1.4",
+  "license": "The MIT license",
   "author": {
     "name": "homerquan",
-    "email": "support@homerquan.com"
+    "email": "hi@homerquan.me"
   },
   "description": "a simple zero-configuration restful service mockup tool",
   "contributors": [
     {
       "name": "Homer Quan",
-      "email": "support@homerquan.com"
+      "email": "hi@homerquan.me"
     }
   ],
   "main": "./server/kakuen-server",
+  "bin": {
+    "kakuen": "./cli.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/homerquan/kakuen.git"
@@ -20,14 +24,17 @@
   "keywords": [
     "kakuen",
     "mockup",
-    "restful"
+    "restful",
+    "api"
   ],
   "dependencies": {
     "JSONPath": "^0.9.1",
+    "chalk": "^2.4.1",
     "chance": "^0.5.4",
     "chokidar": "0.7.1",
     "express": "^3.4.4",
-    "underscore": "^1.5.2"
+    "underscore": "^1.5.2",
+    "yargs": "^11.0.0"
   },
   "readmeFilename": "README.md",
   "bugs": {
