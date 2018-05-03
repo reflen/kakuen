@@ -3,7 +3,7 @@
 ## How to start
 
 * `npm install -g kakuen`
-* `kakuan -f ./mocks -p 8000` 
+* `kakuan -f ./sample_server/mocks -p 8000` 
 
 ## What's new
 
