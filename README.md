@@ -1,5 +1,7 @@
 # kakuen
 
+An easy restful API faker requires no coding.  
+
 ## How to start
 
 * `npm install -g kakuen`
@@ -12,7 +14,7 @@ server=express(),
 moker = kakuen.createMocker('./mocks');
 
 server.use(moker);
-server.listen(8005);
+server.listen(8000);
 ```
 ## What's new
 
