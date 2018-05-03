@@ -68,9 +68,11 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
 
   1. Install
 
-   $ npm install kakuen
+   `$ npm install kakuen`
 
-  1. Launch the sample server or create your own by using kakuen as a handler in express e.g., server.js <pre><code>
+  1. Launch the sample server or create your own by using kakuen as a handler in express e.g., server.js 
+
+  <pre><code>
     var express=require('express'),
     kakuen=require('kakuen'),
     server=express(),
@@ -78,29 +80,38 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
 
     server.use(moker);
     server.listen(8005);
-    </code></pre>
+  </code></pre>
+  
   1. Put mockup files in "mocks" at the root directory of your node app (or specify it: `` export KAKUEN_MOCKS_FOLDER="your_mocks_folder" `` ). Then adding or editing your own json or xml files under 'mocks' in the format:``<method>__#url.[xml|json]`` e.g., ``GET__#book@id=123.json`` ('#' to replace '/', '@' to replace '?')
-    E.g., 
+  
+  E.g., 
+  
     * DELETE__#book@id=123.json     (DELETE /book?id=123   
     * GET__#book@id=1234&type=0.xml (GET /book?id=1234&type=0)  
+  
   1. Finally Start the server and access mocks
-    E.g.,
+  
+  E.g.,
     * ``curl http://localhost:8005/book?id=123``
     * ``curl http://localhost:8005/search?q=java``
     * ``curl http://localhost:8005/search?q=js``
 
 ## Generating mockup data by type
+  
   * all data types in the document of [chance.js](http://chancejs.com/), such as person name, address, ipv6 ...
     e.g., 
     ``chance.month({raw: true});`` 
-    will be <pre><code>
+    will be 
+    <pre><code>
        "@KAKUEN_TYPE": "month",
        "@KAKUEN_PARAM": {
 	   "raw": true,
        }
     </code></pre>
     
-  * image from [lorempixel.com](http://lorempixel.com), which needs to specify weight, height, and topic (option) e.g.,    <pre><code>
+  * image from [lorempixel.com](http://lorempixel.com), which needs to specify weight, height, and topic (option) e.g.,    
+
+  <pre><code>
    "cover-image": {
 	"@KAKUEN_TYPE": "image",
 	"@KAKUEN_PARAM": {
@@ -109,7 +120,7 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
 		"topic": "sports"
 	}
    }
-   </code></pre>
+  </code></pre>
   
 
 ## Features
@@ -130,7 +141,6 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
   * Homer Quan (hi@homerquan.me)
 
 ## License
-.
 
 Copyright (c) 2013-2015 Homer Quan (http://www.homerquan.me)
 
