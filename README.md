@@ -3,7 +3,7 @@
 ## How to start
 
 * `npm install -g kakuen`
-* `kakuan -f ./sample_server/mocks -p 8000` 
+* `kakuen -f ./sample_server/mocks -p 8000` 
 
 ## What's new
 
@@ -19,7 +19,9 @@ Mock up RESTful webservices simply by editing text files, e.g.,
   3. [NEW FEATURE] `GET__#book@id={param}.json ==> GET /book?id=123`
   
 For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET__#search@q=js.json``
-  * for single item <pre><code>
+  * for single item 
+
+  <pre><code>
 		"@KAKUEN_ITEM(offset)": {
 			"@KAKUEN_TYPE": "natural",
 			"@KAKUEN_PARAM": {
@@ -29,7 +31,10 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
 		}
   </code></pre>
   will be ``offset:12``
-  * for collection <pre><code>
+  
+  * for collection 
+
+  <pre><code>
        "@KAKUEN_COLLECTION(data)(10)": {
 		"name": {
 			"@KAKUEN_TYPE": "name",
@@ -47,7 +52,9 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
 		}
 	}
   </code></pre>
-  will be <pre><code>
+  will be 
+
+  <pre><code>
    [
      {
       name: "Leo B. McCarthy",
