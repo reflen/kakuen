@@ -2,7 +2,7 @@
 
 An easy restful API faker requires no coding.  
 
-## How to start
+## Quick start
 
 * `npm install -g kakuen`
 * `kakuen -f ./sample_server/mocks -p 8000` 
@@ -16,11 +16,6 @@ moker = kakuen.createMocker('./mocks');
 server.use(moker);
 server.listen(8000);
 ```
-## What's new
-
-* Add command line 
-* Using chalk for colorful log
-* Update dependences
 
 ## What's kakun
 
@@ -75,24 +70,8 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
    ]
   </code></pre>
 
-## Quick start
-
-  1. Install
-
-   `$ npm install kakuen`
-
-  1. Launch the sample server or create your own by using kakuen as a handler in express e.g., server.js 
-
-  <pre><code>
-    var express=require('express'),
-    kakuen=require('kakuen'),
-    server=express(),
-    moker=kakuen.mocker;
-
-    server.use(moker);
-    server.listen(8005);
-  </code></pre>
-  
+## How to edit mockups
+ 
   1. Put mockup files in "mocks" at the root directory of your node app (or specify it: `` export KAKUEN_MOCKS_FOLDER="your_mocks_folder" `` ). Then adding or editing your own json or xml files under 'mocks' in the format:``<method>__#url.[xml|json]`` e.g., ``GET__#book@id=123.json`` ('#' to replace '/', '@' to replace '?')
   
   E.g., 
@@ -107,7 +86,7 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
     * ``curl http://localhost:8005/search?q=java``
     * ``curl http://localhost:8005/search?q=js``
 
-## Generating mockup data by type
+## Fake data type
   
   * all data types in the document of [chance.js](http://chancejs.com/), such as person name, address, ipv6 ...
     e.g., 
@@ -142,18 +121,20 @@ For json, a schema-based mockup is supported, e.g., in ``sample_server/mocks/GET
   * support random typed data generator (for json only)
   
 ## Change log
+  
+  * v5.0
+    * Add command line 
+    * Using chalk for colorful log
+    * Update dependences
   * v4.0.0 add schema-based mockup using [chance](http://chancejs.com/) data generator
   * v3.5.4 fix file name in windows system  
-
-## Roadmap
-  * integrate with a integrated tools similar to apiblueprint http://apiblueprint.org
 
 ## Author
   * Homer Quan (hi@homerquan.me)
 
 ## License
 
-Copyright (c) 2013-2015 Homer Quan (http://www.homerquan.me)
+Copyright (c) 2013-2018 Homer Quan (http://www.homerquan.me)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
