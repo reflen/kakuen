@@ -1,3 +1,4 @@
+<img src="http://slack.reflen.com/badge.svg">
 # kakuen
 
 An easy restful API faker requires no coding.  
