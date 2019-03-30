@@ -1,4 +1,5 @@
-<img src="http://slack.reflen.com/badge.svg">
+[![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/reflen)
+
 # kakuen
 
 An easy restful API faker requires no coding.  
